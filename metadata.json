@@ -1,0 +1,7 @@
+{
+  "name": "Sião Barber Club Premium",
+  "description": "Barbearia Premium com tradição e modernidade. Planos de corte ilimitado, academia profissional e estética masculina de alto padrão.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
