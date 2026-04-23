@@ -8,7 +8,7 @@ import {
   Scissors, MapPin, Instagram, Phone, MessageCircle, 
   ChevronDown, Star, ArrowRight, Menu, X, CreditCard, 
   GraduationCap, ShoppingBag, Clock, Briefcase, Play, 
-  Coffee, Wifi, Snowflake, Zap, Volume2, VolumeX
+  Coffee, Wifi, Snowflake, Zap, Volume2, VolumeX, ShoppingCart
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -44,6 +44,15 @@ const INSTAGRAM_IMAGES = [
   "https://res.cloudinary.com/dqukldtq1/image/upload/v1776904507/IMG_0186_vqctfx.jpg",
   "https://res.cloudinary.com/dqukldtq1/image/upload/v1776904502/Captura_de_tela_2026-04-08_142542_q8dtjx.png",
   "https://res.cloudinary.com/dqukldtq1/image/upload/v1776904502/Captura_de_tela_2026-04-08_142522_gnxfzb.png"
+];
+
+const NAV_LINKS = [
+  { name: "Sobre o Legado", href: "#about" },
+  { name: "Unidades", href: "#locations" },
+  { name: "Club Sião", href: "#services" },
+  { name: "Sião Shop", href: "#shop" },
+  { name: "Cursos", href: "#academy" },
+  { name: "Recrutamento", href: "#work-with-us" }
 ];
 
 const UNIT_CARAVELAS = "https://res.cloudinary.com/dqukldtq1/image/upload/v1776904508/siao_caravelas_ekj6g8.jpg";
@@ -185,13 +194,13 @@ export default function App() {
           </div>
           
           <div className="hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-widest uppercase text-neutral-400">
-            {["Sobre", "Unidades", "Serviços", "Produtos", "Academy", "Trabalhe Conosco"].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-amber-500 transition-colors">{item}</a>
+            {NAV_LINKS.map((item) => (
+              <a key={item.name} href={item.href} className="hover:text-amber-500 transition-colors">{item.name}</a>
             ))}
-            <a href="https://instagram.com/siao_barber_club" className="hover:text-amber-500"><Instagram size={20} /></a>
+            <a href="https://instagram.com/siao_barber_club" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500"><Instagram size={20} /></a>
           </div>
 
-          <a href="https://wa.link/q20rlq" className="bg-amber-500 text-neutral-950 px-7 py-3 rounded-xl font-black text-[11px] tracking-widest hover:bg-amber-400 transition-all uppercase shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+          <a href="https://wa.link/q20rlq" target="_blank" rel="noopener noreferrer" className="bg-amber-500 text-neutral-950 px-7 py-3 rounded-xl font-black text-[11px] tracking-widest hover:bg-amber-400 transition-all uppercase shadow-[0_0_20px_rgba(245,158,11,0.2)]">
             AGENDAR AGORA
           </a>
         </div>
@@ -221,12 +230,12 @@ export default function App() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="w-full sm:w-auto bg-amber-500 text-neutral-950 px-10 py-5 rounded-xl font-black text-xs tracking-widest flex items-center justify-center gap-3 hover:scale-105 transition-all shadow-xl">
+            <a href="https://cashbarber.com.br/siaobarberclub" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-amber-500 text-neutral-950 px-10 py-5 rounded-xl font-black text-xs tracking-widest flex items-center justify-center gap-3 hover:scale-105 transition-all shadow-xl">
               <Clock size={16} /> AGENDAR HORÁRIO
-            </button>
-            <button className="w-full sm:w-auto bg-white/5 backdrop-blur-xl border border-white/10 text-white px-10 py-5 rounded-xl font-black text-xs tracking-widest flex items-center justify-center gap-3 hover:bg-white/10 transition-all">
+            </a>
+            <a href="#academy" className="w-full sm:w-auto bg-white/5 backdrop-blur-xl border border-white/10 text-white px-10 py-5 rounded-xl font-black text-xs tracking-widest flex items-center justify-center gap-3 hover:bg-white/10 transition-all">
               <GraduationCap size={16} /> ACADEMY
-            </button>
+            </a>
           </div>
 
           <div className="mt-24 animate-bounce flex flex-col items-center gap-2 opacity-40">
@@ -268,7 +277,7 @@ export default function App() {
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-4 rounded-xl bg-amber-500 text-neutral-950 font-black text-[10px] tracking-[0.2em] uppercase hover:scale-105 transition-all shadow-lg active:scale-95">ASSINAR AGORA</button>
+              <a href="https://cashbarber.com.br/siaobarberclub" target="_blank" rel="noopener noreferrer" className="w-full py-4 rounded-xl bg-amber-500 text-neutral-950 font-black text-[10px] tracking-[0.2em] uppercase hover:scale-105 transition-all shadow-lg active:scale-95 text-center flex justify-center items-center">ASSINAR AGORA</a>
             </div>
           ))}
         </div>
@@ -285,7 +294,7 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="sobre" className="py-32 px-6">
+      <section id="about" className="py-32 px-6">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2">
             <span className="text-amber-500 font-bold tracking-[0.4em] uppercase text-[10px]">LEGADO DE EXCELÊNCIA</span>
@@ -339,7 +348,7 @@ export default function App() {
                </div>
             </div>
 
-            <button className="mt-10 bg-amber-500 text-neutral-950 px-10 py-5 rounded-xl font-black text-[11px] tracking-widest uppercase hover:scale-105 transition-all w-full md:w-auto shadow-xl shadow-amber-500/10 border-b-4 border-amber-600">MANIFESTAR INTERESSE VIA WHATSAPP</button>
+            <a href="https://wa.link/6a32w7" target="_blank" rel="noopener noreferrer" className="mt-10 bg-amber-500 text-neutral-950 px-10 py-5 rounded-xl font-black text-[11px] tracking-widest uppercase hover:scale-105 transition-all w-full md:w-auto shadow-xl shadow-amber-500/10 border-b-4 border-amber-600 inline-block text-center mb-10 lg:mb-0">QUERO SER UM BARBEIRO DE ELITE</a>
           </div>
           <div className="lg:w-1/2 relative">
              <div className="aspect-[9/16] max-w-[400px] mx-auto rounded-[40px] overflow-hidden border-[10px] border-neutral-900 shadow-[0_0_100px_rgba(0,0,0,0.8)] relative cursor-pointer">
@@ -350,15 +359,15 @@ export default function App() {
       </section>
 
       {/* Work With Us Heading */}
-      <section className="py-24 px-6 text-center">
+      <section id="work-with-us-header" className="py-24 px-6 text-center">
         <span className="text-amber-500 font-bold tracking-[0.4em] uppercase text-[10px]">MODERNIDADE E TRADIÇÃO EM CADA DETALHE</span>
         <h2 className="font-display font-black text-6xl md:text-8xl uppercase mt-4 mb-10 leading-none">SAIBA COMO<br/> <span className="text-amber-500 italic">TRABALHAR</span><br/> CONOSCO.</h2>
         <p className="text-neutral-500 text-sm font-bold uppercase tracking-[0.2em] max-w-2xl mx-auto mb-12 leading-relaxed">Seja como barbeiro ou colaborador, nosso time aguarda por você. Mande uma mensagem caso tenha interesse em fazer parte da equipe Sião Barber Club.</p>
-        <button className="bg-amber-500 font-black text-xs tracking-widest uppercase px-12 py-5 rounded-2xl text-neutral-900 flex items-center gap-4 mx-auto hover:bg-white transition-all shadow-xl shadow-amber-500/20 active:scale-95"><Briefcase /> TRABALHE CONOSCO</button>
+        <a href="https://forms.gle/exemplo" target="_blank" rel="noopener noreferrer" className="bg-amber-500 font-black text-xs tracking-widest uppercase px-12 py-5 rounded-2xl text-neutral-900 flex items-center justify-center gap-4 max-w-sm mx-auto hover:bg-white transition-all shadow-xl shadow-amber-500/20 active:scale-95"><Briefcase /> TRABALHE CONOSCO</a>
       </section>
 
       {/* Products */}
-      <section id="produtos" className="py-32 px-6 bg-black relative">
+      <section id="shop" className="py-32 px-6 bg-black relative">
         <div className="max-w-7xl mx-auto text-center mb-20 relative z-10">
           <span className="text-amber-500 font-bold tracking-[0.4em] uppercase text-[10px]">MANTENHA A PAIXÃO EM CASA</span>
           <h2 className="font-display font-black text-5xl md:text-6xl uppercase mt-4 leading-none">NOSSOS <span className="italic text-amber-500">PRODUTOS.</span></h2>
@@ -373,10 +382,10 @@ export default function App() {
            </div>
         </div>
 
-        <button className="flex items-center justify-between w-full max-w-xl mx-auto mt-16 p-6 rounded-2xl bg-amber-500 text-neutral-950 font-black text-xs tracking-[0.2em] uppercase hover:bg-white transition-all shadow-xl">
+        <a href="https://wa.link/q20rlq" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full max-w-xl mx-auto mt-16 p-6 rounded-2xl bg-amber-500 text-neutral-950 font-black text-xs tracking-[0.2em] uppercase hover:bg-white transition-all shadow-xl">
            <div className="flex items-center gap-4"><ShoppingBag size={18} /> VER CATÁLOGO COMPLETO</div>
            <ChevronDown size={20} />
-        </button>
+        </a>
 
         <div className="max-w-7xl mx-auto mt-24 grid lg:grid-cols-2 gap-x-24 gap-y-16 p-4">
            {Object.entries(SHOP_PRODUCTS).map(([key, list], i) => (
@@ -386,10 +395,13 @@ export default function App() {
                 </div>
                 <div className="space-y-8">
                   {list.map((s, j) => (
-                    <div key={j} className="flex items-end justify-between gap-4">
+                    <div key={j} className="flex items-end justify-between gap-4 group/item">
                       <span className="text-[11px] font-black text-white uppercase tracking-widest leading-none pb-1">{s.name}</span>
                       <div className="flex-1 border-b border-white/10 mb-1" />
-                      <span className="text-[11px] font-black text-amber-500 uppercase pb-1 leading-none shrink-0 italic">{s.price}</span>
+                      <span className="text-[11px] font-black text-amber-500 uppercase pb-1 leading-none shrink-0 italic flex items-center gap-3">
+                        {s.price}
+                        <a href="https://wa.link/q20rlq" target="_blank" rel="noopener noreferrer" className="text-amber-500 hover:text-white transition-colors opacity-50 hover:opacity-100"><ShoppingCart size={15} /></a>
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -401,7 +413,7 @@ export default function App() {
       </section>
 
       {/* Service Table */}
-      <section id="serviços" className="py-32 px-6">
+      <section id="services" className="py-32 px-6">
         <div className="max-w-7xl mx-auto text-center mb-20">
           <span className="text-amber-500 font-bold tracking-[0.4em] uppercase text-[10px]">EXPERIÊNCIA SIÃO</span>
           <h2 className="font-display font-black text-5xl md:text-6xl uppercase mt-4">TABELA DE <span className="italic text-amber-500">SERVIÇOS.</span></h2>
@@ -429,7 +441,7 @@ export default function App() {
 
         <p className="text-center text-[9px] font-bold tracking-widest text-neutral-600 uppercase mt-20 italic">* OS VALORES \"A PARTIR DE\" PODEM VARIAR CONFORME O COMPRIMENTO DO CABELO E A COMPLEXIDADE DO SERVIÇO. CONSULTE SEU BARBEIRO PARA UM ORÇAMENTO PERSONALIZADO.</p>
         
-        <button className="mt-16 bg-amber-500 font-black text-[11px] tracking-widest uppercase px-12 py-5 rounded-2xl text-neutral-900 mx-auto block hover:scale-105 transition-all shadow-xl active:scale-95">AGENDAR SERVIÇO VIA WHATSAPP</button>
+        <a href="https://wa.link/q20rlq" target="_blank" rel="noopener noreferrer" className="mt-16 bg-amber-500 font-black text-[11px] tracking-widest uppercase px-12 py-5 rounded-2xl text-neutral-900 mx-auto block hover:scale-105 transition-all shadow-xl active:scale-95 text-center max-w-sm flex items-center justify-center">AGENDAR SERVIÇO VIA WHATSAPP</a>
 
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 mt-32 border-t border-white/5 pt-20">
            {[ {icon: <Coffee />, label: "CAFÉ"}, {icon: <Wifi />, label: "WI-FI ULTRA"}, {icon: <Snowflake />, label: "AMBIENTE CLIMATIZADO"}, {icon: <Zap />, label: "ESTÉTICA AVANÇADA"} ].map((feature, i) => (
@@ -544,7 +556,7 @@ export default function App() {
       </section>
 
       {/* Locations */}
-      <section id="unidades" className="py-32 px-6">
+      <section id="locations" className="py-32 px-6">
         <div className="max-w-7xl mx-auto text-center mb-20">
           <span className="text-amber-500 font-bold tracking-[0.4em] uppercase text-[10px]">LOGÍSTICA SIÃO</span>
           <h2 className="font-display font-black text-5xl md:text-[80px] leading-none uppercase mt-4">ESTAMOS ONDE VOCÊ <span className="text-amber-500">PRECISA.</span></h2>
@@ -602,14 +614,14 @@ export default function App() {
       </section>
 
       {/* Final Career Cta */}
-      <section id="trabalhe conosco" className="py-32 px-6">
+      <section id="work-with-us" className="py-32 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <span className="text-amber-500 font-bold tracking-[0.4em] uppercase text-[10px]">FAÇA PARTE DO TIME</span>
           <h2 className="font-display font-black text-6xl md:text-8xl uppercase mt-4 mb-4 leading-none">SAIBA COMO<br/> <span className="text-amber-500 italic">TRABALHAR</span> CONOSCO.</h2>
           <p className="text-neutral-500 text-[11px] font-bold uppercase tracking-[0.2em] max-w-2xl mx-auto mb-16 leading-relaxed">ESTAMOS SEMPRE EM BUSCA DE TALENTOS QUE COMPARTILHAM NOSSA PAIXÃO PELA EXCELÊNCIA E PELA ARTE DA BARBEARIA. SE VOCÊ É UM PROFISSIONAL DEDICADO E BUSCA CRESCER EM UM AMBIENTE DE LUXO, QUEREMOS TE CONHECER.</p>
-          <button className="bg-amber-500 font-black text-[11px] tracking-widest uppercase px-16 py-6 rounded-2xl text-neutral-900 mx-auto block hover:bg-white transition-all shadow-xl shadow-amber-500/20 active:scale-95 group">
+          <a href="https://forms.gle/exemplo" target="_blank" rel="noopener noreferrer" className="bg-amber-500 font-black text-[11px] tracking-widest uppercase px-16 py-6 rounded-2xl text-neutral-900 mx-auto max-w-md flex justify-center hover:bg-white transition-all shadow-xl shadow-amber-500/20 active:scale-95 group">
              ENVIAR CURRÍCULO AGORA <ArrowRight size={20} className="inline ml-4 group-hover:translate-x-2 transition-transform" />
-          </button>
+          </a>
         </div>
       </section>
 
@@ -625,16 +637,15 @@ export default function App() {
              </div>
              <p className="text-neutral-600 text-xs font-bold uppercase tracking-widest leading-relaxed max-w-md italic">Dominando o mercado de barbearia contemporânea, unindo a essência da técnica, tradição e luxo.</p>
              <div className="flex gap-4">
-               {[<Instagram size={20} />, <X size={20} />, <MessageCircle size={20} />].map((icon, i) => (
-                 <a key={i} href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-amber-500 hover:border-amber-500 transition-all">{icon}</a>
-               ))}
+                 <a href="https://instagram.com/siao_barber_club" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-amber-500 hover:border-amber-500 transition-all"><Instagram size={20} /></a>
+                 <a href="https://wa.link/q20rlq" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-amber-500 hover:border-amber-500 transition-all"><MessageCircle size={20} /></a>
              </div>
           </div>
           <div>
             <h4 className="font-black text-[10px] tracking-[0.4em] uppercase text-amber-500 mb-10">NAVEGAÇÃO</h4>
             <ul className="space-y-4 text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
-              {["Início", "Sobre o Legado", "Unidades", "Tabela de Serviços", "Academy"].map((link) => (
-                <li key={link}><a href={`#${link.toLowerCase()}`} className="hover:text-white transition-colors">{link}</a></li>
+              {NAV_LINKS.map((link) => (
+                <li key={link.name}><a href={link.href} className="hover:text-white transition-colors">{link.name}</a></li>
               ))}
             </ul>
           </div>
