@@ -392,7 +392,7 @@ export default function App() {
                </div>
             </div>
 
-            <a href="https://wa.link/6a32w7" target="_blank" rel="noopener noreferrer" className="mt-10 bg-amber-500 text-neutral-950 px-10 py-5 rounded-xl font-black text-[11px] tracking-widest uppercase hover:scale-105 transition-all w-full md:w-auto shadow-xl shadow-amber-500/10 border-b-4 border-amber-600 inline-block text-center mb-10 lg:mb-0">QUERO SER UM BARBEIRO DE ELITE</a>
+            <a href="https://wa.link/6a32w7" target="_blank" rel="noopener noreferrer" className="mt-10 bg-amber-500 text-neutral-950 px-10 py-5 rounded-xl font-black text-[11px] tracking-widest uppercase hover:scale-105 transition-all w-full md:w-auto shadow-xl shadow-amber-500/10 border-b-4 border-amber-600 inline-block text-center mb-10 lg:mb-0">QUERO SER UM BARBEIRO PADRÃO SIÃO</a>
           </div>
           <div className="lg:w-1/2 relative">
              <div className="aspect-[9/16] max-w-[400px] mx-auto rounded-[40px] overflow-hidden border-[10px] border-neutral-900 shadow-[0_0_100px_rgba(0,0,0,0.8)] relative cursor-pointer">
