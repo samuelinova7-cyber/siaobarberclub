@@ -293,6 +293,49 @@ export default function App() {
         </div>
       </section>
 
+      {/* Reviews */}
+      <section id="avalições" className="py-32 px-6 bg-black relative border-y border-white/5">
+        <div className="absolute inset-0 bg-amber-500/[0.02]" />
+        <div className="max-w-7xl mx-auto text-center mb-20 relative z-10">
+          <span className="text-amber-500 font-bold tracking-[0.4em] uppercase text-[10px]">VOZES DA EXPERIÊNCIA</span>
+          <h2 className="font-display font-black text-5xl md:text-7xl uppercase mt-4 leading-none">O QUE DIZEM NOSSOS <span className="text-amber-500">CLIENTES.</span></h2>
+          <p className="text-neutral-400 text-xs font-bold tracking-[0.1em] mt-12 max-w-3xl mx-auto leading-relaxed">
+            A SUA OPINIÃO CONSTRÓI O NOSSO LEGADO. AVALIAR A UNIDADE QUE VOCÊ VISITOU FORTALECE NOSSA BARBEARIA E NOS AJUDA A MANTER O PADRÃO SIÃO QUE VOCÊ MERECE.
+            <br/><br/>
+            DEIXE <span className="text-amber-500">5 ESTRELAS</span>, UM COMENTÁRIO DETALHADO SOBRE O SEU ATENDIMENTO E COMPARTILHE UMA FOTO DO SEU VISUAL RENOVADO PARA GUIAR OUTROS HOMENS A TEREM ESSA MESMA EXPERIÊNCIA DE EXCELÊNCIA.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-6 mt-16">
+             {LOCATIONS.map((loc, i) => (
+               <a key={i} href={loc.review} target="_blank" rel="noopener noreferrer" className="bg-amber-500/10 border border-amber-500/30 px-10 py-5 rounded-3xl font-black text-[10px] tracking-widest uppercase hover:bg-amber-500 hover:text-neutral-950 transition-all flex items-center gap-3">
+                 AVALIAR {loc.name.split(' ').pop().replace(' (CARAVELAS)', '')} <Star size={14} fill="currentColor" />
+               </a>
+             ))}
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+           {[
+             { n: "RODRIGO ALVES", t: "O melhor atendimento que já tive em uma barbearia. O padrão Sião é realmente diferenciado." },
+             { n: "GUSTAVO LIMA", t: "O plano de corte ilimitado foi a melhor escolha. Sempre alinhado e com custo-benefício incrível." },
+             { n: "FELIPE SANTOS", t: "Ambiente sensacional, profissionais de primeira. Recomendo a todos que buscam qualidade." },
+             { n: "ANDRÉ OLIVEIRA", t: "Atendimento impecável e ambiente muito agradável. Recomendo!" }
+           ].map((rev, i) => (
+             <div key={i} className="p-10 rounded-[35px] border border-white/5 bg-neutral-900/60 relative group hover:border-amber-500/20 transition-all">
+                <div className="flex text-amber-500 gap-1 mb-8">
+                  {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
+                </div>
+                <div className="absolute top-10 right-10 text-neutral-800"><MessageCircle size={40} /></div>
+                <p className="text-xs font-bold text-neutral-400 uppercase italic leading-relaxed mb-10 tracking-wider">"{rev.t}"</p>
+                <div className="pt-8 border-t border-white/5">
+                  <h5 className="font-black text-[10px] text-amber-500 tracking-widest uppercase">{rev.n}</h5>
+                  <span className="text-[8px] font-black text-neutral-600 uppercase tracking-widest">CLIENTE FIEL</span>
+                </div>
+             </div>
+           ))}
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="py-32 px-6">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
@@ -515,44 +558,6 @@ export default function App() {
            </div>
         </div>
         <p className="text-center text-[10px] font-black tracking-widest text-[#222] uppercase mt-20">VER MAIS NO @SIAO_BARBER_CLUB</p>
-      </section>
-
-      {/* Reviews */}
-      <section id="avalições" className="py-32 px-6 bg-black">
-        <div className="max-w-7xl mx-auto text-center mb-20">
-          <span className="text-amber-500 font-bold tracking-[0.4em] uppercase text-[10px]">VOZES DA EXPERIÊNCIA</span>
-          <h2 className="font-display font-black text-5xl md:text-7xl uppercase mt-4 leading-none">O QUE DIZEM NOSSOS <span className="text-amber-500">CLIENTES.</span></h2>
-          <p className="text-neutral-500 text-xs font-bold uppercase tracking-widest mt-12 max-w-2xl mx-auto leading-relaxed">GOSTOU DO NOSSO ATENDIMENTO? DEIXE SEU COMENTÁRIO, DÊ CINCO ESTRELAS, CONTE UM POUCO SOBRE SUA EXPERIÊNCIA E COMPARTILHE UMA FOTO.</p>
-          
-          <div className="flex flex-wrap justify-center gap-6 mt-16">
-             {LOCATIONS.map((loc, i) => (
-               <button key={i} className="bg-amber-500/10 border border-amber-500/30 px-10 py-5 rounded-3xl font-black text-[10px] tracking-widest uppercase hover:bg-amber-500 hover:text-neutral-950 transition-all flex items-center gap-3">
-                 AVALIAR {loc.name.split(' ').pop().replace(' (CARAVELAS)', '')} <Star size={14} fill="currentColor" />
-               </button>
-             ))}
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-           {[
-             { n: "RODRIGO ALVES", t: "O melhor atendimento que já tive em uma barbearia. O padrão Sião é realmente diferenciado." },
-             { n: "GUSTAVO LIMA", t: "O plano de corte ilimitado foi a melhor escolha. Sempre alinhado e com custo-benefício incrível." },
-             { n: "FELIPE SANTOS", t: "Ambiente sensacional, profissionais de primeira. Recomendo a todos que buscam qualidade." },
-             { n: "ANDRÉ OLIVEIRA", t: "Atendimento impecável e ambiente muito agradável. Recomendo!" }
-           ].map((rev, i) => (
-             <div key={i} className="p-10 rounded-[35px] border border-white/5 bg-neutral-900/60 relative group hover:border-amber-500/20 transition-all">
-                <div className="flex text-amber-500 gap-1 mb-8">
-                  {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
-                </div>
-                <div className="absolute top-10 right-10 text-neutral-800"><MessageCircle size={40} /></div>
-                <p className="text-xs font-bold text-neutral-400 uppercase italic leading-relaxed mb-10 tracking-wider">\"{rev.t}\"</p>
-                <div className="pt-8 border-t border-white/5">
-                  <h5 className="font-black text-[10px] text-amber-500 tracking-widest uppercase">{rev.n}</h5>
-                  <span className="text-[8px] font-black text-neutral-600 uppercase tracking-widest">CLIENTE FIEL</span>
-                </div>
-             </div>
-           ))}
-        </div>
       </section>
 
       {/* Locations */}
