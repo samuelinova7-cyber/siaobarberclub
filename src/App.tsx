@@ -157,6 +157,7 @@ const VideoWithSoundToggle = ({ src, className, overlay }: { src: string, classN
 export default function App() {
   const [activeUnit, setActiveUnit] = useState(0);
   const [productIndex, setProductIndex] = useState(0);
+  const [showCatalog, setShowCatalog] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => setProductIndex((prev) => (prev + 1) % PRODUCT_IMAGES.length), 4000);
@@ -425,32 +426,37 @@ export default function App() {
            </div>
         </div>
 
-        <a href="https://wa.link/q20rlq" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full max-w-xl mx-auto mt-16 p-6 rounded-2xl bg-amber-500 text-neutral-950 font-black text-xs tracking-[0.2em] uppercase hover:bg-white transition-all shadow-xl">
+        <button 
+          onClick={() => setShowCatalog(!showCatalog)}
+          className="flex items-center justify-between w-full max-w-xl mx-auto mt-16 p-6 rounded-2xl bg-amber-500 text-neutral-950 font-black text-xs tracking-[0.2em] uppercase hover:bg-white transition-all shadow-xl group"
+        >
            <div className="flex items-center gap-4"><ShoppingBag size={18} /> VER CATÁLOGO COMPLETO</div>
-           <ChevronDown size={20} />
-        </a>
+           <ChevronDown size={20} className={`transition-transform duration-300 ${showCatalog ? 'rotate-180' : ''}`} />
+        </button>
 
-        <div className="max-w-7xl mx-auto mt-24 grid lg:grid-cols-2 gap-x-24 gap-y-16 p-4">
-           {Object.entries(SHOP_PRODUCTS).map(([key, list], i) => (
-             <div key={key}>
-                <div className="flex items-center gap-4 mb-10 border-l-4 border-amber-500 pl-4">
-                   <h3 className="font-display font-black text-xs tracking-[0.4em] uppercase text-amber-500">{key.replace('_', ' ')}</h3>
-                </div>
-                <div className="space-y-8">
-                  {list.map((s, j) => (
-                    <div key={j} className="flex items-end justify-between gap-4 group/item">
-                      <span className="text-[11px] font-black text-white uppercase tracking-widest leading-none pb-1">{s.name}</span>
-                      <div className="flex-1 border-b border-white/10 mb-1" />
-                      <span className="text-[11px] font-black text-amber-500 uppercase pb-1 leading-none shrink-0 italic flex items-center gap-3">
-                        {s.price}
-                        <a href="https://wa.link/q20rlq" target="_blank" rel="noopener noreferrer" className="text-amber-500 hover:text-white transition-colors opacity-50 hover:opacity-100"><ShoppingCart size={15} /></a>
-                      </span>
-                    </div>
-                  ))}
-                </div>
-             </div>
-           ))}
-        </div>
+        {showCatalog && (
+          <div className="max-w-7xl mx-auto mt-24 grid lg:grid-cols-2 gap-x-24 gap-y-16 p-4 animate-in fade-in slide-in-from-top-4 duration-500">
+             {Object.entries(SHOP_PRODUCTS).map(([key, list], i) => (
+               <div key={key}>
+                  <div className="flex items-center gap-4 mb-10 border-l-4 border-amber-500 pl-4">
+                     <h3 className="font-display font-black text-xs tracking-[0.4em] uppercase text-amber-500">{key.replace('_', ' ')}</h3>
+                  </div>
+                  <div className="space-y-8">
+                    {list.map((s, j) => (
+                      <div key={j} className="flex items-end justify-between gap-4 group/item">
+                        <span className="text-[11px] font-black text-white uppercase tracking-widest leading-none pb-1">{s.name}</span>
+                        <div className="flex-1 border-b border-white/10 mb-1" />
+                        <span className="text-[11px] font-black text-amber-500 uppercase pb-1 leading-none shrink-0 italic flex items-center gap-3">
+                          {s.price}
+                          <a href="https://wa.link/q20rlq" target="_blank" rel="noopener noreferrer" className="text-amber-500 hover:text-white transition-colors opacity-50 hover:opacity-100"><ShoppingCart size={15} /></a>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+               </div>
+             ))}
+          </div>
+        )}
 
         <p className="text-center text-[9px] font-black tracking-[0.3em] text-neutral-700 uppercase mt-16 italic">Visite uma de nossas unidades para conhecer a linha completa</p>
       </section>
