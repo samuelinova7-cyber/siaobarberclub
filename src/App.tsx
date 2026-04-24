@@ -99,26 +99,26 @@ const SERVICES = {
 
 const SHOP_PRODUCTS = {
   linha_barbearia: [
-    { name: "Pomada Matte Fox", price: "R$ 45,00" },
-    { name: "Pomada Matte Embaixador", price: "R$ 60,00" },
-    { name: "Pomada Efeito Brilho Fox", price: "R$ 30,00" },
-    { name: "Pomada Efeito Brilho Embaixador", price: "R$ 45,00" },
-    { name: "Pomada em Pó Fox", price: "R$ 45,00" },
-    { name: "Creme Pós Barba Fox", price: "R$ 50,00" },
-    { name: "Shampoo de Caspa", price: "R$ 38,00" },
-    { name: "Shampoo de Biotina", price: "R$ 38,00" },
-    { name: "Shampoo 4x1 Fox", price: "R$ 38,00" },
-    { name: "Máscara de Reposição", price: "R$ 50,00" },
-    { name: "Balm", price: "R$ 45,00" },
-    { name: "Óleo Fox Gota a Gota", price: "R$ 40,00" },
-    { name: "Leave-in", price: "R$ 50,00" },
-    { name: "Shampoo Matizador Fox", price: "R$ 45,00" }
+    { name: "01 Pomada matte fox", price: "R$ 45" },
+    { name: "02 Pomada matte embaixador", price: "R$ 60" },
+    { name: "03 Pomada efeito brilho fox", price: "R$ 30" },
+    { name: "04 Pomada efeito brilho embaixador", price: "R$ 45" },
+    { name: "05 Pomada em pó fox", price: "R$ 45" },
+    { name: "06 Creme pós barba fox", price: "R$ 50" },
+    { name: "07 Shampoo de caspa", price: "R$ 38" },
+    { name: "08 Shampoo de biotina", price: "R$ 38" },
+    { name: "09 Shampoo 4x1 fox", price: "R$ 38" },
+    { name: "10 Máscara de reposição", price: "R$ 50" },
+    { name: "14 Balm", price: "R$ 45" },
+    { name: "15 Óleo fox gota gota", price: "R$ 40" },
+    { name: "19 levei-in", price: "R$ 50" },
+    { name: "20 Shampoo matizador fox", price: "R$ 45" }
   ],
   acessorios: [
-    { name: "Minoxidil Kirkland", price: "R$ 85,00" },
-    { name: "Escova Mágica", price: "R$ 25,00" },
-    { name: "Escova Modeladora Marco Bony", price: "R$ 55,00" },
-    { name: "Pente de Madeira", price: "R$ 25,00" }
+    { name: "11 Minoxidil kirkland", price: "R$ 85" },
+    { name: "12 Escova mágica", price: "R$ 25" },
+    { name: "13 Escova modeladora marco bony", price: "R$ 55" },
+    { name: "16 Pente de madeira", price: "R$ 25" }
   ]
 };
 
@@ -176,45 +176,48 @@ export default function App() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white font-sans overflow-x-hidden">
       
-      {/* Marquee Header */}
-      <div className="py-2 bg-amber-500 overflow-hidden whitespace-nowrap z-50 relative">
-        <div className="flex animate-marquee">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="flex shrink-0">
-              {MARQUEE_ITEMS.map((item, idx) => (
-                <span key={idx} className="mx-6 text-neutral-900 font-bold text-[10px] tracking-widest flex items-center gap-2">
-                  <div className="w-1 h-1 bg-neutral-900 rounded-full" /> {item}
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Navbar */}
-      <nav className="relative z-50 bg-black/40 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-12 w-12 rounded-full overflow-hidden border border-amber-500/30">
-              <video autoPlay muted loop playsInline className="w-full h-full object-cover"><source src={LOGO_VIDEO} type="video/mp4" /></video>
-            </div>
-            <span className="font-display font-black text-2xl tracking-tighter uppercase leading-none">
-              SIÃO <span className="text-amber-500">BARBER CLUB</span>
-            </span>
-          </div>
-          
-          <div className="hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-widest uppercase text-neutral-400">
-            {NAV_LINKS.map((item) => (
-              <a key={item.name} href={item.href} className="hover:text-amber-500 transition-colors">{item.name}</a>
+      {/* Sticky Header Container */}
+      <header className="sticky top-0 z-[100] w-full">
+        {/* Marquee Header */}
+        <div className="py-2 bg-amber-500 overflow-hidden whitespace-nowrap relative">
+          <div className="flex animate-marquee">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="flex shrink-0">
+                {MARQUEE_ITEMS.map((item, idx) => (
+                  <span key={idx} className="mx-6 text-neutral-900 font-bold text-[10px] tracking-widest flex items-center gap-2">
+                    <div className="w-1 h-1 bg-neutral-900 rounded-full" /> {item}
+                  </span>
+                ))}
+              </div>
             ))}
-            <a href="https://instagram.com/siao_barber_club" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500"><Instagram size={20} /></a>
           </div>
-
-          <a href="https://wa.link/q20rlq" target="_blank" rel="noopener noreferrer" className="bg-amber-500 text-neutral-950 px-7 py-3 rounded-xl font-black text-[11px] tracking-widest hover:bg-amber-400 transition-all uppercase shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-            AGENDAR AGORA
-          </a>
         </div>
-      </nav>
+
+        {/* Navbar */}
+        <nav className="relative bg-[#050505]/80 backdrop-blur-md border-b border-white/5">
+          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-full overflow-hidden border border-amber-500/30">
+                <video autoPlay muted loop playsInline className="w-full h-full object-cover"><source src={LOGO_VIDEO} type="video/mp4" /></video>
+              </div>
+              <span className="font-display font-black text-xl tracking-tighter uppercase leading-none">
+                SIÃO <span className="text-amber-500">BARBER CLUB</span>
+              </span>
+            </div>
+            
+            <div className="hidden lg:flex items-center gap-8 text-[10px] font-bold tracking-widest uppercase text-neutral-400">
+              {NAV_LINKS.map((item) => (
+                <a key={item.name} href={item.href} className="hover:text-amber-500 transition-colors">{item.name}</a>
+              ))}
+              <a href="https://instagram.com/siao_barber_club" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500"><Instagram size={18} /></a>
+            </div>
+
+            <a href="https://wa.link/q20rlq" target="_blank" rel="noopener noreferrer" className="bg-amber-500 text-neutral-950 px-6 py-2.5 rounded-xl font-black text-[10px] tracking-widest hover:bg-amber-400 transition-all uppercase shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+              AGENDAR AGORA
+            </a>
+          </div>
+        </nav>
+      </header>
 
       {/* Hero */}
       <header className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 pt-20">
@@ -300,6 +303,49 @@ export default function App() {
             <span className="text-amber-500 font-bold tracking-widest text-[10px] uppercase">OBSERVAÇÃO IMPORTANTE:</span>
             <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-wide leading-relaxed mt-1">Os planos de assinatura estão disponíveis em todas as nossas unidades <span className="text-white">(Praia do Francês, Manguaba e Trevo).</span></p>
           </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section id="avalições" className="py-32 px-6 bg-black relative border-y border-white/5">
+        <div className="absolute inset-0 bg-amber-500/[0.02]" />
+        <div className="max-w-7xl mx-auto text-center mb-20 relative z-10">
+          <span className="text-amber-500 font-bold tracking-[0.4em] uppercase text-[10px]">VOZES DA EXPERIÊNCIA</span>
+          <h2 className="font-display font-black text-5xl md:text-7xl uppercase mt-4 leading-none">O QUE DIZEM NOSSOS <span className="text-amber-500">CLIENTES.</span></h2>
+          <p className="text-neutral-400 text-xs font-bold tracking-[0.1em] mt-12 max-w-3xl mx-auto leading-relaxed">
+            A SUA OPINIÃO CONSTRÓI O NOSSO LEGADO. AVALIAR A UNIDADE QUE VOCÊ VISITOU FORTALECE NOSSA BARBEARIA E NOS AJUDA A MANTER O PADRÃO SIÃO QUE VOCÊ MERECE.
+            <br/><br/>
+            DEIXE <span className="text-amber-500">5 ESTRELAS</span>, UM COMENTÁRIO DETALHADO SOBRE O SEU ATENDIMENTO E COMPARTILHE UMA FOTO DO SEU VISUAL RENOVADO PARA GUIAR OUTROS HOMENS A TEREM ESSA MESMA EXPERIÊNCIA DE EXCELÊNCIA.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-6 mt-16">
+             {LOCATIONS.map((loc, i) => (
+               <a key={i} href={loc.review} target="_blank" rel="noopener noreferrer" className="bg-amber-500/10 border border-amber-500/30 px-10 py-5 rounded-3xl font-black text-[10px] tracking-widest uppercase hover:bg-amber-500 hover:text-neutral-950 transition-all flex items-center gap-3">
+                 AVALIAR {loc.name.split(' ').pop().replace(' (CARAVELAS)', '')} <Star size={14} fill="currentColor" />
+               </a>
+             ))}
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+           {[
+             { n: "RODRIGO ALVES", t: "O melhor atendimento que já tive em uma barbearia. O padrão Sião é realmente diferenciado." },
+             { n: "GUSTAVO LIMA", t: "O plano de corte ilimitado foi a melhor escolha. Sempre alinhado e com custo-benefício incrível." },
+             { n: "FELIPE SANTOS", t: "Ambiente sensacional, profissionais de primeira. Recomendo a todos que buscam qualidade." },
+             { n: "ANDRÉ OLIVEIRA", t: "Atendimento impecável e ambiente muito agradável. Recomendo!" }
+           ].map((rev, i) => (
+             <div key={i} className="p-10 rounded-[35px] border border-white/5 bg-neutral-900/60 relative group hover:border-amber-500/20 transition-all">
+                <div className="flex text-amber-500 gap-1 mb-8">
+                  {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
+                </div>
+                <div className="absolute top-10 right-10 text-neutral-800"><MessageCircle size={40} /></div>
+                <p className="text-xs font-bold text-neutral-400 uppercase italic leading-relaxed mb-10 tracking-wider">"{rev.t}"</p>
+                <div className="pt-8 border-t border-white/5">
+                  <h5 className="font-black text-[10px] text-amber-500 tracking-widest uppercase">{rev.n}</h5>
+                  <span className="text-[8px] font-black text-neutral-600 uppercase tracking-widest">CLIENTE FIEL</span>
+                </div>
+             </div>
+           ))}
         </div>
       </section>
 
