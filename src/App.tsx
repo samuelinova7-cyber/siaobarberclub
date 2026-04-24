@@ -99,17 +99,26 @@ const SERVICES = {
 
 const SHOP_PRODUCTS = {
   linha_barbearia: [
-    { name: "Pomada Matte Fox", price: "R$ 60,00" },
-    { name: "Pomada Efeito Brilho Fox", price: "R$ 45,00" },
-    { name: "Pomada em Pó Fox", price: "R$ 50,00" },
-    { name: "Shampoo Anticaspa", price: "R$ 37,00" },
-    { name: "Shampoo 4x1 Fox", price: "R$ 50,00" },
-    { name: "Balm Embaixador", price: "R$ 40,00" },
-    { name: "Leave-in Fox", price: "R$ 45,00" }
+    { name: "Pomada Matte Fox", price: "R$ 45,00" },
+    { name: "Pomada Matte Embaixador", price: "R$ 60,00" },
+    { name: "Pomada Efeito Brilho Fox", price: "R$ 30,00" },
+    { name: "Pomada Efeito Brilho Embaixador", price: "R$ 45,00" },
+    { name: "Pomada em Pó Fox", price: "R$ 45,00" },
+    { name: "Creme Pós Barba Fox", price: "R$ 50,00" },
+    { name: "Shampoo de Caspa", price: "R$ 38,00" },
+    { name: "Shampoo de Biotina", price: "R$ 38,00" },
+    { name: "Shampoo 4x1 Fox", price: "R$ 38,00" },
+    { name: "Máscara de Reposição", price: "R$ 50,00" },
+    { name: "Balm", price: "R$ 45,00" },
+    { name: "Óleo Fox Gota a Gota", price: "R$ 40,00" },
+    { name: "Leave-in", price: "R$ 50,00" },
+    { name: "Shampoo Matizador Fox", price: "R$ 45,00" }
   ],
   acessorios: [
-    { name: "Minoxidil Kirkland", price: "R$ 25,00" },
-    { name: "Escova Modeladora Marco Bony", price: "R$ 25,00" }
+    { name: "Minoxidil Kirkland", price: "R$ 85,00" },
+    { name: "Escova Mágica", price: "R$ 25,00" },
+    { name: "Escova Modeladora Marco Bony", price: "R$ 55,00" },
+    { name: "Pente de Madeira", price: "R$ 25,00" }
   ]
 };
 
